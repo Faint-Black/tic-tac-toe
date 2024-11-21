@@ -1,0 +1,28 @@
+Checks: >
+  readability-*,
+  modernize-*,
+  performance-*,
+  bugprone-*,
+  misc-*,
+  readability-identifier-naming,
+  - readability-magic-numbers,
+  - readability-function-cognitive-complexity,
+  - readability-else-after-return,
+  - misc-include-cleaner,
+  - misc-no-recursion, 
+  - modernize-macro-to-enum,
+  - bugprone-easily-swappable-parameters,
+  - bugprone-implicit-widening-of-multiplication-result
+HeaderFilterRegex: '.*'          # Check .h files as well
+
+CheckOptions:
+  - key: readability-identifier-length.MinimumVariableNameLength
+    value: "1"                   # Disable minimum variable name length
+  - key: readability-identifier-length.MinimumParameterNameLength
+    value: "1"                   # Disable minimum parameter name length
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case            # Set function parameters to lowercase
+  - key: readability-identifier-naming.ParameterPrefix
+    value: '_'                   # Require an underscore prefix for function parameters
+  - key: readability-identifier-naming.FunctionCase
+    value: Camel_Snake_Case      # Set function names to Camel_Snake_Case

@@ -1,0 +1,22 @@
+# Choose a base style (LLVM, Google, Chromium, Mozilla, WebKit)
+BasedOnStyle: Google
+
+# Customizations
+IndentWidth: 4                             # Use 4 spaces per indentation level
+ColumnLimit: 100                           # Line length limit
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+BreakBeforeBraces: Allman                  # Open braces on a new line
+SpacesInParentheses: false                 # No spaces inside parentheses
+PointerAlignment: Left                     # Align pointer symbol with type (e.g., `int* ptr`)
+UseTab: Never                              # Only use spaces (no tabs)
+
+# Control the alignment of various elements
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros: true
+BreakBeforeBinaryOperators: NonAssignment
+
+# Control specific formatting behaviors
+SpaceBeforeParens: ControlStatements   # Space before parentheses in control statements only
