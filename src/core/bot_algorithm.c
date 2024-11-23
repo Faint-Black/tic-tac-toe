@@ -24,7 +24,7 @@ static void              Recursive_Loop(int _depth, int _origin_pos, Possibility
                                         PossibilityMatrix* _matrix);
 static void              Make_Child(PossibilityNode* _parent, int _origin_pos, int _index,
                                     PossibilityMatrix* _matrix);
-static void              Recursive_Infanticide(PossibilityNode* _parent);
+static void              Recursive_Free(PossibilityNode* _parent);
 // helper functions
 static SquareType Get_Current_Turn(const Board* _b);
 static int        Get_Indexed_Empty_Square(const Board* _b, int _index);
@@ -165,7 +165,7 @@ PossibilityMatrix Synchronous_Iteration(const Board* _b, int _index)
     Recursive_Loop(9, origin_pos, root, &endpoint_results);
 
     // free allocated memory
-    Recursive_Infanticide(root);
+    Recursive_Free(root);
 
     return endpoint_results;
 }
@@ -281,8 +281,7 @@ void Make_Child(PossibilityNode* _parent, int _origin_pos, int _index, Possibili
 }
 
 // free all memory allocated in a possibilityNode tree
-// TODO: rename function
-void Recursive_Infanticide(PossibilityNode* _parent)
+void Recursive_Free(PossibilityNode* _parent)
 {
     if (_parent == NULL)
     {
@@ -314,7 +313,7 @@ void Recursive_Infanticide(PossibilityNode* _parent)
         }
         else
         {
-            Recursive_Infanticide(child);
+            Recursive_Free(child);
         }
     }
 
